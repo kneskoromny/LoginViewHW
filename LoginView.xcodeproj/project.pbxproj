@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		F7279E3F2612F279000B310A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E3E2612F279000B310A /* AppDelegate.swift */; };
 		F7279E412612F279000B310A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E402612F279000B310A /* SceneDelegate.swift */; };
-		F7279E432612F279000B310A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E422612F279000B310A /* ViewController.swift */; };
+		F7279E432612F279000B310A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E422612F279000B310A /* LoginViewController.swift */; };
 		F7279E462612F279000B310A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7279E442612F279000B310A /* Main.storyboard */; };
 		F7279E482612F27A000B310A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7279E472612F27A000B310A /* Assets.xcassets */; };
 		F7279E4B2612F27A000B310A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7279E492612F27A000B310A /* LaunchScreen.storyboard */; };
+		F7279E552612F2B4000B310A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E542612F2B4000B310A /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F7279E3B2612F279000B310A /* LoginView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7279E3E2612F279000B310A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7279E402612F279000B310A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F7279E422612F279000B310A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7279E422612F279000B310A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7279E452612F279000B310A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7279E472612F27A000B310A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7279E4A2612F27A000B310A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7279E4C2612F27A000B310A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7279E542612F2B4000B310A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				F7279E3E2612F279000B310A /* AppDelegate.swift */,
 				F7279E402612F279000B310A /* SceneDelegate.swift */,
-				F7279E422612F279000B310A /* ViewController.swift */,
+				F7279E422612F279000B310A /* LoginViewController.swift */,
+				F7279E542612F2B4000B310A /* WelcomeViewController.swift */,
 				F7279E442612F279000B310A /* Main.storyboard */,
 				F7279E472612F27A000B310A /* Assets.xcassets */,
 				F7279E492612F27A000B310A /* LaunchScreen.storyboard */,
@@ -137,7 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7279E432612F279000B310A /* ViewController.swift in Sources */,
+				F7279E432612F279000B310A /* LoginViewController.swift in Sources */,
+				F7279E552612F2B4000B310A /* WelcomeViewController.swift in Sources */,
 				F7279E3F2612F279000B310A /* AppDelegate.swift in Sources */,
 				F7279E412612F279000B310A /* SceneDelegate.swift in Sources */,
 			);
