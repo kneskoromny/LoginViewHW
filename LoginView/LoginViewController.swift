@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -15,10 +15,13 @@ class LoginViewController: UIViewController {
     private let userName = "Lex"
     private let password = "123"
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        userNameTF.delegate = self
+        passwordTF.delegate = self
+
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
@@ -74,5 +77,18 @@ class LoginViewController: UIViewController {
         userNameTF.text = nil
     }
     
+    // переносим курсор на поле password
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordTF.becomeFirstResponder()
+    }
+    // кнопка return должна повторить LogIn
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+        
 }
+   
+    
+
+
+    
+
 
