@@ -10,22 +10,68 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var userNameTF: UITextField!
-    
     @IBOutlet weak var passwordTF: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+    private let userName = "Lex"
+    private let password = "123"
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController
+        else { return }
+        welcomeVC.userName = userNameTF.text
     }
 
     @IBAction func loginButtonPressed() {
+        guard userNameTF.text == userName && passwordTF.text == password
+        else {  let wrongUserAC = UIAlertController(
+                title: "Oops!",
+                message: "It looks like Username or Password is wrong!",
+                preferredStyle: .alert)
+            let action = UIAlertAction(title: "Try again!", style: .default) {
+                _ in self.erazeText()
+            }
+            wrongUserAC.addAction(action)
+            self.present(wrongUserAC, animated: true)
+            return
+        }
     }
     
     @IBAction func forgotNameButtonPressed() {
+        alert(title: "No problem!", message: "Your username is Lex")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
+        alert(title: "That's it!", message: "Your password is 123")
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue ) {
+        guard segue.source is WelcomeViewController else { return }
+        erazeText()
+    }
+    
+    private func alert(title: String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
+    private func erazeText() {
+        passwordTF.text = nil
+        userNameTF.text = nil
     }
     
 }
