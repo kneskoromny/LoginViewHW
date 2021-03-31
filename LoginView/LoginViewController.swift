@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         userNameTF.delegate = self
         passwordTF.delegate = self
-
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -35,18 +34,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func loginButtonPressed() {
-        guard userNameTF.text == userName && passwordTF.text == password
-        else {  let wrongUserAC = UIAlertController(
-                title: "Oops!",
-                message: "It looks like Username or Password is wrong!",
-                preferredStyle: .alert)
-            let action = UIAlertAction(title: "Try again!", style: .default) {
-                _ in self.erazeText()
-            }
-            wrongUserAC.addAction(action)
-            self.present(wrongUserAC, animated: true)
-            return
-        }
+        checkUser()
+        performSegue(withIdentifier: "sequeToWelcome", sender: nil)
     }
     
     @IBAction func forgotNameButtonPressed() {
@@ -59,7 +48,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func unwind(for segue: UIStoryboardSegue ) {
         guard segue.source is WelcomeViewController else { return }
-        erazeText()
+        userNameTF.text = nil
+        passwordTF.text = nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            loginButtonPressed()
+        }
+        return true
     }
     
     private func alert(title: String, message: String) {
@@ -72,18 +71,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true)
     }
     
-    private func erazeText() {
-        passwordTF.text = nil
-        userNameTF.text = nil
+    private func checkUser() {
+        guard userNameTF.text == userName && passwordTF.text == password
+        else {  let wrongUserAC = UIAlertController(
+                title: "Oops!",
+                message: "It looks like Username or Password is wrong!",
+                preferredStyle: .alert)
+            let action = UIAlertAction(title: "Try again!", style: .default) {
+                _ in self.passwordTF.text = nil
+            }
+            wrongUserAC.addAction(action)
+            self.present(wrongUserAC, animated: true)
+            return
+        }
     }
-    
-    // переносим курсор на поле password
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        passwordTF.becomeFirstResponder()
-    }
-    // кнопка return должна повторить LogIn
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-        
 }
    
     
