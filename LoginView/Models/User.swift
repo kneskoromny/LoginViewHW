@@ -7,8 +7,8 @@
 
 
 struct User {
-     let userName = "User"
-     let password = "Pass"
+     let userName = "1"
+     let password = "1"
     
      let person: Person
 }

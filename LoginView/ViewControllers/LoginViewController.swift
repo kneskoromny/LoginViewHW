@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private let userKirill = User(person: Person(
                                     name: "Kirill",
-                                    surname: "Neskoromnyy",
+                                    surname: "Neskoromny",
                                     age: 35,
                                     work: "Navigator",
                                     city: "Murmansk"))
@@ -35,10 +35,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let welcomeVC = segue.destination as? WelcomeViewController
+//        else { return }
+//        welcomeVC.userName = userKirill.person.name
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController
-        else { return }
-        welcomeVC.userName = userKirill.person.name
+        let tabBarController = segue.destination as! UITabBarController
+        
+        if let viewControllers = tabBarController.viewControllers {
+            
+            for viewController in viewControllers {
+                if let welcomeVC = viewController as? WelcomeViewController {
+                    welcomeVC.name = userKirill.person.name
+                    
+                } else if let aboutMeVC = viewController as? AboutMeViewController {
+                    aboutMeVC.name = userKirill.person.name
+                    aboutMeVC.surname = userKirill.person.surname
+                    aboutMeVC.age = userKirill.person.age
+                    
+                } else if let aboutMe2VC = viewController as? AboutMe2ViewController {
+                    aboutMe2VC.city = userKirill.person.city
+                    aboutMe2VC.work = userKirill.person.work
+                }
+            }
+        }
+       
+        
     }
 
     @IBAction func loginButtonPressed() {
