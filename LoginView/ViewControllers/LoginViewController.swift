@@ -12,25 +12,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-    private let userName = "Lex"
-    private let password = "123"
+//    private let userName = "Lex"
+//    private let password = "123"
+    
+    private let userKirill = User(person: Person(
+                                    name: "Kirill",
+                                    surname: "Neskoromnyy",
+                                    age: 35,
+                                    work: "Navigator",
+                                    city: "Murmansk"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         userNameTF.delegate = self
         passwordTF.delegate = self
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController
         else { return }
-        welcomeVC.userName = userNameTF.text
+        welcomeVC.userName = userKirill.person.name
     }
 
     @IBAction func loginButtonPressed() {
@@ -39,11 +47,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotNameButtonPressed() {
-        alert(title: "No problem!", message: "Your username is Lex")
+        alert(title: "No problem!", message: "Your username is \(userKirill.userName)")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
-        alert(title: "That's it!", message: "Your password is 123")
+        alert(title: "That's it!", message: "Your password is \(userKirill.password)")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue ) {
@@ -72,8 +80,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func checkUser() {
-        guard userNameTF.text == userName && passwordTF.text == password
-        else {  let wrongUserAC = UIAlertController(
+        guard userNameTF.text == userKirill.userName
+                && passwordTF.text == userKirill.password else {
+            let wrongUserAC = UIAlertController(
                 title: "Oops!",
                 message: "It looks like Username or Password is wrong!",
                 preferredStyle: .alert)
