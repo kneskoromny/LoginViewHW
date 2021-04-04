@@ -10,7 +10,8 @@
 		F7239DE626172FEA007D4C32 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7239DE526172FEA007D4C32 /* User.swift */; };
 		F7239DEF26178C76007D4C32 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7239DEE26178C76007D4C32 /* TabBarController.swift */; };
 		F7239DF226179877007D4C32 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7239DF126179877007D4C32 /* AboutMeViewController.swift */; };
-		F7239DF5261798E4007D4C32 /* AboutMe2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7239DF4261798E4007D4C32 /* AboutMe2ViewController.swift */; };
+		F7239DF5261798E4007D4C32 /* AboutMyHobbiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7239DF4261798E4007D4C32 /* AboutMyHobbiesViewController.swift */; };
+		F7239DF92618860F007D4C32 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7239DF82618860F007D4C32 /* PhotoViewController.swift */; };
 		F7279E3F2612F279000B310A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E3E2612F279000B310A /* AppDelegate.swift */; };
 		F7279E412612F279000B310A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E402612F279000B310A /* SceneDelegate.swift */; };
 		F7279E432612F279000B310A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7279E422612F279000B310A /* LoginViewController.swift */; };
@@ -24,7 +25,8 @@
 		F7239DE526172FEA007D4C32 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F7239DEE26178C76007D4C32 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F7239DF126179877007D4C32 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
-		F7239DF4261798E4007D4C32 /* AboutMe2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMe2ViewController.swift; sourceTree = "<group>"; };
+		F7239DF4261798E4007D4C32 /* AboutMyHobbiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMyHobbiesViewController.swift; sourceTree = "<group>"; };
+		F7239DF82618860F007D4C32 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		F7279E3B2612F279000B310A /* LoginView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7279E3E2612F279000B310A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7279E402612F279000B310A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,11 +52,12 @@
 		F7239DDD26172E44007D4C32 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7239DEE26178C76007D4C32 /* TabBarController.swift */,
 				F7279E422612F279000B310A /* LoginViewController.swift */,
 				F7279E542612F2B4000B310A /* WelcomeViewController.swift */,
-				F7239DEE26178C76007D4C32 /* TabBarController.swift */,
 				F7239DF126179877007D4C32 /* AboutMeViewController.swift */,
-				F7239DF4261798E4007D4C32 /* AboutMe2ViewController.swift */,
+				F7239DF4261798E4007D4C32 /* AboutMyHobbiesViewController.swift */,
+				F7239DF82618860F007D4C32 /* PhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +151,11 @@
 		F7279E332612F279000B310A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					0,
+					1,
+					2,
+				);
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
@@ -197,7 +205,8 @@
 				F7239DF226179877007D4C32 /* AboutMeViewController.swift in Sources */,
 				F7279E3F2612F279000B310A /* AppDelegate.swift in Sources */,
 				F7239DEF26178C76007D4C32 /* TabBarController.swift in Sources */,
-				F7239DF5261798E4007D4C32 /* AboutMe2ViewController.swift in Sources */,
+				F7239DF92618860F007D4C32 /* PhotoViewController.swift in Sources */,
+				F7239DF5261798E4007D4C32 /* AboutMyHobbiesViewController.swift in Sources */,
 				F7239DE626172FEA007D4C32 /* User.swift in Sources */,
 				F7279E412612F279000B310A /* SceneDelegate.swift in Sources */,
 			);

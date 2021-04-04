@@ -8,19 +8,15 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
-//    private let userName = "Lex"
-//    private let password = "123"
     
-    private let userKirill = User(person: Person(
-                                    name: "Kirill",
-                                    surname: "Neskoromny",
-                                    age: 35,
-                                    work: "Navigator",
-                                    city: "Murmansk"))
+    private let currentUser = User()
+    private let userInfo = User.getPerson()
+    private let userHobbies = User.getHobbies()
+    private let userPhotos = User.getPhoto()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,51 +31,53 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let welcomeVC = segue.destination as? WelcomeViewController
-//        else { return }
-//        welcomeVC.userName = userKirill.person.name
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         let tabBarController = segue.destination as! UITabBarController
         
         if let viewControllers = tabBarController.viewControllers {
             
             for viewController in viewControllers {
                 if let welcomeVC = viewController as? WelcomeViewController {
-                    welcomeVC.name = userKirill.person.name
+                    welcomeVC.name = userInfo.name
+                    welcomeVC.surname = userInfo.surname
                     
                 } else if let aboutMeVC = viewController as? AboutMeViewController {
-                    aboutMeVC.name = userKirill.person.name
-                    aboutMeVC.surname = userKirill.person.surname
-                    aboutMeVC.age = userKirill.person.age
+                    aboutMeVC.name = userInfo.name
+                    aboutMeVC.surname = userInfo.surname
+                    aboutMeVC.age = userInfo.age
+                    aboutMeVC.city = userInfo.city
+                    aboutMeVC.image = userInfo.image
                     
-                } else if let aboutMe2VC = viewController as? AboutMe2ViewController {
-                    aboutMe2VC.city = userKirill.person.city
-                    aboutMe2VC.work = userKirill.person.work
+                } else if let aboutMyHobbiesVC = viewController as? AboutMyHobbiesViewController {
+                    aboutMyHobbiesVC.hobbies = userHobbies
+                }
+                
+                else if let photoVC = viewController as? PhotoViewController {
+                    photoVC.photos = userPhotos
                 }
             }
         }
-       
+        
         
     }
-
+    
     @IBAction func loginButtonPressed() {
         checkUser()
         performSegue(withIdentifier: "sequeToWelcome", sender: nil)
     }
     
     @IBAction func forgotNameButtonPressed() {
-        alert(title: "No problem!", message: "Your username is \(userKirill.userName)")
+        alert(title: "No problem!",
+              message: "Your username is \(currentUser.userName)")
     }
     
     @IBAction func forgotPasswordButtonPressed() {
-        alert(title: "That's it!", message: "Your password is \(userKirill.password)")
+        alert(title: "That's it!",
+              message: "Your password is \(currentUser.password)")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue ) {
-        guard segue.source is WelcomeViewController else { return }
         userNameTF.text = nil
         passwordTF.text = nil
     }
@@ -104,8 +102,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func checkUser() {
-        guard userNameTF.text == userKirill.userName
-                && passwordTF.text == userKirill.password else {
+        guard userNameTF.text == currentUser.userName
+                && passwordTF.text == currentUser.password else {
             let wrongUserAC = UIAlertController(
                 title: "Oops!",
                 message: "It looks like Username or Password is wrong!",
@@ -119,10 +117,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-   
-    
 
 
-    
+
+
+
 
 
