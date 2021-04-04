@@ -17,7 +17,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var secondTitleLabel: UILabel!
     @IBOutlet weak var thirdTitleLabel: UILabel!
     
-    var photos: [Photo]!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class PhotoViewController: UIViewController {
     }
     
     private func getPhotoDescription() {
-        for photo in photos {
+        for photo in currentUser.person.photos {
             if photo.image == "чупа" {
                 firstImageView.image = UIImage(named: photo.image)
                 firstTitleLabel.text = photo.description

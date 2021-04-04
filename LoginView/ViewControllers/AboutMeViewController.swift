@@ -14,14 +14,8 @@ class AboutMeViewController: UIViewController {
  
     @IBOutlet var avatarImage: UIImageView!
     
-    var name: String!
-    var surname: String!
-    var age: Int!
-    var city: String!
-    var image: String!
-    
-     
-    
+    var currentUser: User!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +25,8 @@ class AboutMeViewController: UIViewController {
         avatarImage.layer.cornerRadius = avatarImage.frame.height / 10
         
         infoLabel.text = """
-            Привет👋\n Меня зовут \(name!) \(surname!),
-            мне \(age!) лет и я живу в городе \(city!).
+            Привет👋\n Меня зовут \(currentUser.person.name) \(currentUser.person.surname),
+            мне \(currentUser.person.age) лет и я живу в городе \(currentUser.person.city).
             Во вкладках ты найдешь инфо о моих увлечениях и пару фото!
             Давай знакомиться😉
             """

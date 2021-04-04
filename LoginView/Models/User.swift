@@ -6,8 +6,28 @@
 //
 
 struct User {
-    let userName = "1"
-    let password = "1"
+    let userName: String
+    let password: String
+    
+    let person: Person
+    
+    static func getUserdata() -> User {
+        return User(
+            userName: "1",
+            password: "1",
+            person: Person.getPerson())
+    }
+}
+
+
+struct Person {
+    let name: String
+    let surname: String
+    let age: Int
+    let city: String
+    let image: String
+    let hobbies: [Hobby]
+    let photos: [Photo]
     
     static func getPerson() -> Person {
         return Person(
@@ -15,8 +35,15 @@ struct User {
             surname: "Нескоромный",
             age: 35,
             city: "Мурманск",
-            image: "аватар")
+            image: "аватар",
+            hobbies: Hobby.getHobbies(),
+            photos: Photo.getPhotos())
     }
+}
+
+struct Hobby {
+    let title: String
+    let description: String
     
     static func getHobbies() -> [Hobby] {
         return [
@@ -45,7 +72,14 @@ struct User {
         ]
     }
     
-    static func getPhoto() -> [Photo] {
+    
+}
+
+struct Photo {
+    let image: String
+    let description: String
+    
+    static func getPhotos() -> [Photo] {
         return [
             Photo(
                 image: "чупа",
@@ -58,24 +92,6 @@ struct User {
                 description: "Путешествие на Эльбрус")
         ]
     }
-}
-
-struct Person {
-    let name: String
-    let surname: String
-    let age: Int
-    let city: String
-    let image: String
-}
-
-struct Hobby {
-    let title: String
-    let description: String
-}
-
-struct Photo {
-    let image: String
-    let description: String
 }
 
 

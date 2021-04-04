@@ -12,13 +12,12 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     
-    var name: String!
-    var surname: String!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientLayer()
-        welcomeLabel.text = "Добро пожаловать, \(name!) \(surname!)!"
+        welcomeLabel.text = "Добро пожаловать, \(currentUser.person.name) \(currentUser.person.surname)!"
     }
     
     private func gradientLayer() {

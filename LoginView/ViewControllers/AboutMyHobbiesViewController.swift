@@ -16,7 +16,7 @@ class AboutMyHobbiesViewController: UIViewController {
     @IBOutlet weak var BottomLabelTitle: UILabel!
     @IBOutlet weak var BottomLabelDescription: UILabel!
     
-    var hobbies: [Hobby]!
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class AboutMyHobbiesViewController: UIViewController {
     }
     
     private func getHobbyDescription() {
-        for hobby in hobbies {
+        for hobby in currentUser.person.hobbies {
             if hobby.title == "Бегать" {
                 TopLabelTitle.text = hobby.title + " 🏃"
                 TopLabelDescription.text = hobby.description

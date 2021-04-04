@@ -13,10 +13,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTF: UITextField!
     
     
-    private let currentUser = User()
-    private let userInfo = User.getPerson()
-    private let userHobbies = User.getHobbies()
-    private let userPhotos = User.getPhoto()
+    private let currentUser = User.getUserdata()
+//    private let userInfo = User.getPerson()
+//    private let userHobbies = User.getHobbies()
+//    private let userPhotos = User.getPhoto()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +41,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             for viewController in viewControllers {
                 if let welcomeVC = viewController as? WelcomeViewController {
-                    welcomeVC.name = userInfo.name
-                    welcomeVC.surname = userInfo.surname
+                    welcomeVC.currentUser = currentUser
                     
                 } else if let aboutMeVC = viewController as? AboutMeViewController {
-                    aboutMeVC.name = userInfo.name
-                    aboutMeVC.surname = userInfo.surname
-                    aboutMeVC.age = userInfo.age
-                    aboutMeVC.city = userInfo.city
-                    aboutMeVC.image = userInfo.image
+                    aboutMeVC.currentUser = currentUser
+                   
                     
                 } else if let aboutMyHobbiesVC = viewController as? AboutMyHobbiesViewController {
-                    aboutMyHobbiesVC.hobbies = userHobbies
+                    aboutMyHobbiesVC.currentUser = currentUser
                 }
                 
                 else if let photoVC = viewController as? PhotoViewController {
-                    photoVC.photos = userPhotos
+                    photoVC.currentUser = currentUser
                 }
             }
         }
