@@ -16,6 +16,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gradientLayer()
         welcomeLabel.text = "Добро пожаловать, \(currentUser.person.name) \(currentUser.person.surname)!"
     }
